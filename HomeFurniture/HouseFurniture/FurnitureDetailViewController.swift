@@ -68,9 +68,10 @@ class FurnitureDetailViewController: UIViewController, UIImagePickerControllerDe
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
         guard let image = info[.originalImage] as? UIImage else {return}
-        //furniture.imageData = UIImagePNGRepresentation(image)
-        dismiss(animated: true, completion: nil)
-        self.updateView()
+        //furniture?.imageData = image.pngData()
+        dismiss(animated: true) {
+            self.updateView()
+        }
     }
 
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
